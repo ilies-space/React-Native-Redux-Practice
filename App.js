@@ -9,13 +9,23 @@ import AnotherScreen from "./screen2";
 ///------------
 export default function App() {
   //consts goes here :
+
   const initialState = {
-    name: "ilies 911",
+    name: "init VAlue ",
   };
   //---
   //fucntions goes here :
 
-  const reducer = (state = initialState) => {
+  const reducer = (state = initialState, action) => {
+    switch (action.type) {
+      case "update_Value":
+        return { name: "new value" };
+        break;
+
+      default:
+        break;
+    }
+
     return state;
   };
   const store = createStore(reducer);
