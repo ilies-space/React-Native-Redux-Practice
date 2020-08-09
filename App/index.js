@@ -10,8 +10,21 @@ import { Provider } from "react-redux";
 export default () => {
   const [name, setName] = useState("ilies");
   const [password, setpassword] = useState("PASWORD");
+  //for testing onley :
+  const [AllProducts, setAllProducts] = useState([
+    { ProductName: "Coca cola", ProductPrice: 170 },
+    { ProductName: "ifri", ProductPrice: 25 },
+    { ProductName: "nutella", ProductPrice: 1500 },
+    { ProductName: "Coca cola", ProductPrice: 170 },
+    { ProductName: "ifri", ProductPrice: 25 },
+    { ProductName: "nutella", ProductPrice: 1500 },
+    { ProductName: "Coca cola", ProductPrice: 170 },
+    { ProductName: "ifri", ProductPrice: 25 },
+    { ProductName: "nutella", ProductPrice: 1500 },
+  ]);
+  //----
 
-  const data = { name, password };
+  const data = { name, password, AllProducts };
 
   //redux :
   //fucntions goes here :
@@ -28,8 +41,8 @@ export default () => {
         setName(action.value);
         console.log(action.value);
         break;
-      case "test":
-        console.log("test");
+      case "add":
+        console.log("add");
       default:
         break;
     }

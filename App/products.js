@@ -7,11 +7,18 @@ class Allitems extends Component {
     return (
       <View style={{ flex: 1, paddingTop: 36, alignItems: "center" }}>
         <Text> {this.props.name} </Text>
-        <Button
-          title="change to Oldm"
-          onPress={() => this.props.chnageName("Ouldenoeur")}
-        />
-        <Button title="test" onPress={() => this.props.test()} />
+        <Button title="Add item to list" onPress={() => this.props.add()} />
+
+        {this.props.AllProducts.map((data, key) => {
+          return (
+            <View>
+              <Text>
+                {data.ProductName.substring(0, 2)} -->
+                {data.ProductPrice + " DZD"}
+              </Text>
+            </View>
+          );
+        })}
       </View>
     );
   }
@@ -20,12 +27,13 @@ class Allitems extends Component {
 function mapStateToProps(state) {
   return {
     name: state.name,
+    AllProducts: state.AllProducts,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    test: () => dispatch({ type: "test" }),
+    add: () => dispatch({ type: "add" }),
     chnageName: (value) => dispatch({ type: "chnageName", value }),
   };
 }
