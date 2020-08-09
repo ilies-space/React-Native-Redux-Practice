@@ -7,10 +7,7 @@ class AnotherScreen extends Component {
     TextInputValue: "",
   };
 
-  updateValue = (x) => {
-    this.state.TextInputValue = x;
-    console.log(this.state.TextInputValue);
-  };
+  updateValue = (x) => {};
 
   render() {
     return (
@@ -21,11 +18,7 @@ class AnotherScreen extends Component {
           placeholder={"VALUES GOES HERE"}
           onChangeText={(value) => this.updateValue(value)}
         />
-        <Button
-          title="add"
-          on
-          onPress={() => this.props.add(this.state.TextInputValue)}
-        />
+        <Button title="add" on onPress={() => this.props.add("Hello World")} />
 
         <View style={{ flex: 1 }}>
           {this.props.AllProducts.map((data, key) => {
