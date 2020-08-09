@@ -20,7 +20,12 @@ export default function App() {
     switch (action.type) {
       case "update_Value":
         return { name: "new value" };
-        break;
+
+      case "deleteValue":
+        return { name: "" };
+
+      case "send":
+        console.log(action.value);
 
       default:
         break;
