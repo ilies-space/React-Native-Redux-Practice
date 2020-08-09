@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Text, View, Button } from "react-native";
 import Allitems from "./products";
+import SelectedItems from "./SelectedItems";
 
 // redux :
 import { createStore } from "redux";
@@ -24,7 +25,14 @@ export default () => {
   ]);
   //----
 
-  const data = { name, password, AllProducts };
+  //for testing onley :
+  const [SeectedItems, setSeectedItems] = useState([
+    { ProductName: "Coca cola", ProductPrice: 170 },
+    { ProductName: "ifri", ProductPrice: 25 },
+  ]);
+  //----
+
+  const data = { name, password, AllProducts, SeectedItems };
 
   //redux :
   //fucntions goes here :
@@ -42,6 +50,16 @@ export default () => {
         console.log(action.value);
         break;
       case "add":
+        setSeectedItems((prevList) => {
+          return [
+            {
+              ProductName: action.name,
+              ProductPrice: action.price,
+              key: Math.random().toString(),
+            },
+            ...prevList,
+          ];
+        });
         console.log("add");
       default:
         break;
@@ -56,6 +74,7 @@ export default () => {
   return (
     <View style={{ flex: 1 }}>
       <Provider store={store}>
+        <SelectedItems />
         <Allitems />
       </Provider>
     </View>

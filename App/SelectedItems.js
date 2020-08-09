@@ -2,20 +2,13 @@ import React, { Component } from "react";
 import { Text, View, Button } from "react-native";
 import { connect } from "react-redux";
 
-class Allitems extends Component {
+class SelectedItems extends Component {
   render() {
     return (
       <View style={{ flex: 1, paddingTop: 36, alignItems: "center" }}>
-        <Text> {this.props.name} </Text>
+        <Text>Selected Items :</Text>
 
-        <Text> {this.props.passwrod} </Text>
-
-        <Button
-          title="Add item to list"
-          onPress={() => this.props.add("product x", 666)}
-        />
-
-        {this.props.AllProducts.map((data, key) => {
+        {this.props.SeectedItems.map((data, key) => {
           return (
             <View>
               <Text>
@@ -35,6 +28,7 @@ function mapStateToProps(state) {
     name: state.name,
     AllProducts: state.AllProducts,
     passwrod: state.password,
+    SeectedItems: state.SeectedItems,
   };
 }
 
@@ -45,4 +39,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Allitems);
+export default connect(mapStateToProps, mapDispatchToProps)(SelectedItems);
