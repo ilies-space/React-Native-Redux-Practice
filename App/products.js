@@ -6,12 +6,8 @@ class Allitems extends Component {
   render() {
     return (
       <View style={{ flex: 1, paddingTop: 36, alignItems: "center" }}>
-        <Text> {this.props.name} </Text>
-
-        <Text> {this.props.passwrod} </Text>
-
         <Button
-          title="Add item to list"
+          title="Add item to Selected list"
           onPress={() => this.props.add("product x", 666)}
         />
 

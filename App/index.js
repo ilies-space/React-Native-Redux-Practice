@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Text, View, Button } from "react-native";
 import Allitems from "./products";
 import SelectedItems from "./SelectedItems";
+import ManagProducts from "./ManageProducts";
 
 // redux :
 import { createStore } from "redux";
@@ -50,7 +51,7 @@ export default () => {
         console.log(action.value);
         break;
       case "add":
-        setSeectedItems((prevList) => {
+        setAllProducts((prevList) => {
           return [
             {
               ProductName: action.name,
@@ -74,7 +75,7 @@ export default () => {
   return (
     <View style={{ flex: 1 }}>
       <Provider store={store}>
-        <SelectedItems />
+        <ManagProducts />
         <Allitems />
       </Provider>
     </View>
