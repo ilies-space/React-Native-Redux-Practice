@@ -12,6 +12,11 @@ export default function App() {
 
   const initialState = {
     name: "init VAlue ",
+    AllProducts: [
+      { ProductName: "Coca cola", ProductPrice: 170 },
+      { ProductName: "ifri", ProductPrice: 25 },
+      { ProductName: "nutella", ProductPrice: 1500 },
+    ],
   };
   //---
   //fucntions goes here :
@@ -24,7 +29,7 @@ export default function App() {
       case "deleteValue":
         return { name: "" };
 
-      case "send":
+      case "add":
         console.log(action.value);
 
       default:
@@ -51,5 +56,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+    paddingTop: 36,
   },
 });

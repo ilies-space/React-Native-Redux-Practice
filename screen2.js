@@ -1,17 +1,15 @@
 import React, { Component, useState } from "react";
-import { View, Text, TextInput, Button } from "react-native";
+import { View, Text, TextInput, Button, TouchableOpacity } from "react-native";
 import { connect } from "react-redux";
 
 class AnotherScreen extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     count: 13,
-  //   };
-  // }
+  state = {
+    TextInputValue: "",
+  };
 
-  onCHangeHandler = (x) => {
-    this.setState({ count: x });
+  updateValue = (x) => {
+    this.state.TextInputValue = x;
+    console.log(this.state.TextInputValue);
   };
 
   render() {
@@ -21,14 +19,26 @@ class AnotherScreen extends Component {
         <Text>{this.props.name}</Text>
         <TextInput
           placeholder={"VALUES GOES HERE"}
-          onChangeText={(value) => this.props.updateValue(value)}
+          onChangeText={(value) => this.updateValue(value)}
         />
-        <Button title="delete" on onPress={() => this.props.delete()} />
         <Button
-          title="send"
+          title="add"
           on
-          onPress={() => this.props.send("Hello World")}
+          onPress={() => this.props.add(this.state.TextInputValue)}
         />
+
+        <View style={{ flex: 1 }}>
+          {this.props.AllProducts.map((data, key) => {
+            return (
+              <TouchableOpacity key={key} onPress={() => itemPressHandler()}>
+                <Text>
+                  {data.ProductName} ->
+                  {data.ProductPrice + " DZD"}
+                </Text>
+              </TouchableOpacity>
+            );
+          })}
+        </View>
       </View>
     );
   }
@@ -37,14 +47,14 @@ class AnotherScreen extends Component {
 function mapStateToProps(state) {
   return {
     name: state.name,
+    AllProducts: state.AllProducts,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    updateValue: () => dispatch({ type: "update_Value" }),
     delete: () => dispatch({ type: "deleteValue" }),
-    send: (value) => dispatch({ type: "send", value }),
+    add: (value) => dispatch({ type: "add", value }),
   };
 }
 
