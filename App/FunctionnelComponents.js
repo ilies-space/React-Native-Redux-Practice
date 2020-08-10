@@ -8,8 +8,9 @@ export const FunctionnelComponents = () => {
 
   //dispatcher :
   const dispatch = useDispatch();
+  const value = "helloWorld";
   const TestHandler = () => {
-    dispatch({ type: "test" });
+    dispatch({ type: "test", value });
   };
 
   return (

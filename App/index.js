@@ -44,7 +44,7 @@ export default () => {
         return { name: "new value" };
 
       case "test":
-        console.log("redux connected succesfuly");
+        console.log("test and passed value is : " + action.value);
         break;
       case "chnageName":
         setName(action.value);
