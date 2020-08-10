@@ -43,9 +43,9 @@ export default () => {
       case "update_Value":
         return { name: "new value" };
 
-      case "deleteValue":
-        return { name: "" };
-
+      case "test":
+        console.log("redux connected succesfuly");
+        break;
       case "chnageName":
         setName(action.value);
         console.log(action.value);
