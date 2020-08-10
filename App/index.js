@@ -10,7 +10,7 @@ import { Provider } from "react-redux";
 ///------------
 
 export default () => {
-  const [name, setName] = useState("ilies");
+  const [name, setName] = useState("ilies Ould Menouer");
   const [password, setpassword] = useState("PASWORD");
   //for testing onley :
   const [AllProducts, setAllProducts] = useState([
