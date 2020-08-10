@@ -3,7 +3,7 @@ import { Text, View, Button } from "react-native";
 import Allitems from "./products";
 import SelectedItems from "./SelectedItems";
 import ManagProducts from "./ManageProducts";
-
+import { FunctionnelComponents } from "./FunctionnelComponents";
 // redux :
 import { createStore } from "redux";
 import { Provider } from "react-redux";
@@ -75,8 +75,7 @@ export default () => {
   return (
     <View style={{ flex: 1 }}>
       <Provider store={store}>
-        <ManagProducts />
-        <Allitems />
+        <FunctionnelComponents />
       </Provider>
     </View>
   );
